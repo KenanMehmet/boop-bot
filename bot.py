@@ -11,7 +11,8 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 async def send_message(message, user_message, is_private):
     try:
-        response_message = response.handle_response(user_message)
+        response_message = response.handle_response(message)
+        print(response_message)
         await message.author.send(response_message) if is_private else await message.channel.send(response_message)
     except Exception as e:
         print(e)
